@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import type { WeatherResponse, TimeData } from './types/weather'
+import type { WeatherResponse } from './types/weather'
 
 function useWindowSize() {
   const [size, setSize] = useState({
@@ -436,8 +436,7 @@ function App() {
                         const timeData = weatherData.data[time]
                         const umet = timeData.umet[reverseIndex]
                         const vmet = timeData.vmet[reverseIndex]
-                        const thr = timeData.thr[reverseIndex]
-                        const ths = timeData.ths[reverseIndex]
+
                         const direction = calculateWindDirection(umet, vmet)
                         const speed = getWindSpeed(umet, vmet)
                         
