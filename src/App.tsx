@@ -111,10 +111,14 @@ function App() {
   }, [coordinates, selectedDate])
 
   const calculateWindDirection = (umet: number, vmet: number): number => {
+    
     // Conversion des composantes en degrés (0° = Nord, 90° = Est)
     const direction = Math.atan2(vmet, umet) * (180 / Math.PI)
+    
     // Ajustement pour avoir 0° = Nord
-    return (direction + 360) % 360
+    const offset = 180
+
+    return (direction + offset) % 360
   }
 
   const getWindColor = (umet: number, vmet: number): string => {
